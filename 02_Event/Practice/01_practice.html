@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01 Practice</title>
+</head>
+<body>
+    <h1 id="title">안녕하세요</h1>
+    <div>
+        <button id="color">색을 바꾸고 싶으면 눌러주세요</button>
+    </div>
+    <div>
+        <button id="eng">영어로 번역하려면 눌러주세요</button>
+    </div>
+    <div>
+        <button id="msg">메세지 차을 띄우고 싶으면 눌러주세요</button>
+    </div>
+    <script>
+        const $titleText = document.getElementById("title");
+        const $colorChanged = document.getElementById("color");
+        const $transEng = document.getElementById("eng");
+        const $msgScreen = document.getElementById("msg");
+
+        $colorChanged.addEventListener('click', function() {
+           
+            if($colorChanged.style.color == "black" || $colorChanged.style.color == "") { // == ""로 null값을 체크함
+                $colorChanged.style.color = "aqua";
+            } else {
+                $colorChanged.removeAttribute("style");
+            }
+        })
+
+        $transEng.addEventListener('click', function() {
+            if ($titleText.innerHTML = "안녕하세요") {
+                $titleText.innerHTML = "Hi!";
+            }
+        })
+
+        $msgScreen.addEventListener('click', function() {
+            alert("수고하셨습니다");
+        })
+    </script>
+</body>
+</html>

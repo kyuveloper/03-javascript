@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute</title>
+</head>
+<body>
+    <h1>01. 어트리뷰트</h1>
+    <pre>
+        Element.prototype.attributes 프로퍼티는 모든 어트리뷰트 노드를 취득할 수 있다.
+        Attributes 프로퍼티는 getter만 존재하는 읽기 전용 접근자 프로퍼티로 NameNodeMap 객체를 반환한다.
+    </pre>
+
+    <label for="username">김진규</label>
+    <input type="text" id="username" value="user01"/>
+
+    <script>
+        const {attributes} = document.getElementById("username"); //attributes는 태그의 속성 소환 (id, value, style ..)
+        console.log(document.getElementById("username").attributes);
+        console.log(attributes);
+        console.log(attributes.id.value);
+        console.log(attributes.value.value);
+        console.log("----------------");
+    </script>
+
+    <pre>
+        Element.prototype.getAttribute/setAttiribute 메서드를 사용하면 attributes 프로퍼티를
+        통하지 않고 요소 노드에서 메서드를 통해 직접 html 어트리뷰트의 값을 취득하거나 변경할 수 있다.
+    </pre>
+    <script>
+        const $input = document.getElementById("username"); //<input type="text" id="username" value="user01"/>
+        const inputValue1 = $input.getAttribute("value"); //value="user01"
+        console.log(inputValue1); //user01
+
+        $input.setAttribute("value", "user02"); //setAttribute: value 속성의 값을 user02로 바꿀거다
+        const inputValue2 = $input.getAttribute("value"); //value="user02"
+        console.log(inputValue2); //user02
+        console.log("----------------");
+    </script>
+
+    <pre>
+        Element.prototype.hasAttribute(attributeName) 메서드를 사용하면 특정 html 어트리뷰트가 존재하는지 확인할 수 있다.
+        Element.prototype.removeAttribute(attributeName) 메서드를 사용하면 특정 html 어트리뷰트를 삭제할 수 있다.
+    </pre>
+    <label for="ninkname">닉네임</label>
+    <input type="text" id="ninkname" value="JsMaster"/>
+    <script>
+        const $ninkname = document.getElementById("ninkname"); 
+        console.log($ninkname.hasAttribute("name")); //속성을 가지고 있는지 확인
+
+        if ($ninkname.hasAttribute("value")){
+            $ninkname.removeAttribute("value");
+        }
+        console.log($ninkname.hasAttribute("value"));
+    </script>
+</body>
+</html>
